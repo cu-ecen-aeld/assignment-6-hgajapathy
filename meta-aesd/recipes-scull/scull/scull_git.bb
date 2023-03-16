@@ -39,9 +39,9 @@ do_compile () {
 do_install () {
 	install -d ${D}${bindir}
 	install -d ${D}${sysconfdir}/init.d
-    install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/
+    install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/extra/
 	install -m 0755 ${S}/scull_load ${D}${bindir}/
     install -m 0755 ${S}/scull_unload ${D}${bindir}/
 	install -m 0755 ${WORKDIR}/S98lddmodules-scull ${D}${sysconfdir}/init.d
-    install -m 0755 ${S}/scull.ko ${D}/${base_libdir}/modules/${KERNEL_VERSION}/
+    install -m 0755 ${S}/scull.ko ${D}/${base_libdir}/modules/${KERNEL_VERSION}/extra/
 }
