@@ -10,7 +10,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignment-7-hgajapathy.git;protoco
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "3c663ccbe9fec5d71a8aa5c41dd188a6eede46c5"
+SRCREV = "c8638f184f86f95a5cafbfc14cbdc97b0a3f6248"
 
 S = "${WORKDIR}/git/scull"
 
@@ -39,9 +39,9 @@ do_compile () {
 do_install () {
 	install -d ${D}${bindir}
 	install -d ${D}${sysconfdir}/init.d
-    install -d ${D}${base_libdir}/modules/5.15.91-yocto-standard/
+    install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/
 	install -m 0755 ${S}/scull_load ${D}${bindir}/
     install -m 0755 ${S}/scull_unload ${D}${bindir}/
 	install -m 0755 ${WORKDIR}/S98lddmodules-scull ${D}${sysconfdir}/init.d
-    install -m 0755 ${S}/scull.ko ${D}/${base_libdir}/modules/5.15.91-yocto-standard/
+    install -m 0755 ${S}/scull.ko ${D}/${base_libdir}/modules/${KERNEL_VERSION}/
 }
